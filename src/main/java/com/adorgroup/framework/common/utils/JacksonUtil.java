@@ -1,10 +1,15 @@
-package com.adorgroup.framework.common.jackson;
+package com.adorgroup.framework.common.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import java.io.IOException;
 
 public class JacksonUtil {
-    public static ObjectMapper objectMapper;
+    public static ObjectMapper objectMapper  = new ObjectMapper();
+    public static XmlMapper xmlMapper = new XmlMapper();
 
     /**
      * 使用泛型方法，把json字符串转换为相应的JavaBean对象。
@@ -17,10 +22,6 @@ public class JacksonUtil {
      * @return
      */
     public static <T> T readValue(String jsonStr, Class<T> valueType) {
-        if (objectMapper == null) {
-            objectMapper = new ObjectMapper();
-        }
-
         try {
             return objectMapper.readValue(jsonStr, valueType);
         } catch (Exception e) {
@@ -37,9 +38,6 @@ public class JacksonUtil {
      * @return
      */
     public static <T> T readValue(String jsonStr, TypeReference<T> valueTypeRef){
-        if (objectMapper == null) {
-            objectMapper = new ObjectMapper();
-        }
 
         try {
             return objectMapper.readValue(jsonStr, valueTypeRef);
@@ -56,18 +54,32 @@ public class JacksonUtil {
      * @param object
      * @return
      */
-    public static String toJSon(Object object) {
-        if (objectMapper == null) {
-            objectMapper = new ObjectMapper();
-        }
+    public static String toJson(Object object) {
 
         try {
             return objectMapper.writeValueAsString(object);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
+    }
+
+    public static String toXml(Object object){
+        try {
+          return   xmlMapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static <T> T readXmlValue(String xml, Class<T> valueType ){
+        try {
+            return xmlMapper.readValue(xml,valueType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  null;
     }
 
 
