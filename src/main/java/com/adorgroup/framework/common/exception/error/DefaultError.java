@@ -7,12 +7,11 @@ package com.adorgroup.framework.common.exception.error;
  */
 public enum DefaultError implements IError {
     SYSTEM_INTERNAL_ERROR("0000", "System Internal Error"),
-
     TOKEN_NOT_FOUND("0001", "Token Not Found"),
     INVALID_TOKEN("0002", "Invalid Token"),
     SIGN_NOT_FOUND("0003", "Sign Not Found"),
-    INVALID_SIGN("0004", "Invalid Sign");
-
+    INVALID_SIGN("0004", "Invalid Sign"),
+    LOADBALANCE_ERROR("0005","Load Balance Error");
 
     String errorCode;
     String errorMessage;
