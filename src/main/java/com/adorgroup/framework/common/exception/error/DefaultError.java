@@ -11,8 +11,10 @@ public enum DefaultError implements IError {
     INVALID_TOKEN("0002", "Invalid Token"),
     TOKEN_OVERTIME("0003","Token Overtime"),
     SIGN_NOT_FOUND("0004", "Sign Not Found"),
-    INVALID_SIGN("0005", "Invalid Sign"),
-    LOADBALANCE_ERROR("0006","Load Balance Error");
+    SIGNT_OVERTIME_ERROR("0005","Signt Overtime Error"),
+    INVALID_SIGN("0006", "Invalid Sign"),
+    LOADBALANCE_ERROR("0007","Load Balance Error");
+
 
     String errorCode;
     String errorMessage;

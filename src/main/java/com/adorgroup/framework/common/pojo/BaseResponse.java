@@ -34,7 +34,6 @@ public class BaseResponse implements Serializable {
     }
 
     public BaseResponse(IError error) {
-        this.status =BaseResponse.Status.SUCCEED;
         this.errorCode = error.getErrorCode();
         this.errorMessage = error.getErrorMessage();
         this.status = BaseResponse.Status.FAILED;
