@@ -13,7 +13,8 @@ public enum DefaultError implements IError {
     SIGN_NOT_FOUND("0004", "Sign Not Found"),
     SIGNT_OVERTIME_ERROR("0005","Signt Overtime Error"),
     INVALID_SIGN("0006", "Invalid Sign"),
-    LOADBALANCE_ERROR("0007","Load Balance Error");
+    LOADBALANCE_ERROR("0007","Load Balance Error"),
+    ARGUMENT_ERROR("0008","Argument Error");
 
 
     String errorCode;
