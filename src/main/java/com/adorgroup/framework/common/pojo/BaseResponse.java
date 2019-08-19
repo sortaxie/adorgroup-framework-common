@@ -77,7 +77,7 @@ public class BaseResponse implements Serializable {
         if(this.errorCode != null) {
             sb.append("ErrorCode : ").append(this.errorCode).append("ErrorMessage : ").append(this.errorMessage).append("ExtMessage : " + this.extMessage);
         } else {
-            sb.append("Succeed");
+            sb.append("SUCCEED");
         }
 
         return sb.toString();
